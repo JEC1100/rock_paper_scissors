@@ -15,11 +15,13 @@ class ROCK_PAPER_SCISSORS < Sinatra::Base
   get '/play' do
     @name = session[:name]
     @tool = session[:tool]
+    @computer_tool = session[:computer_tool]
     erb :play
   end
 
   post '/play' do
     session[:tool] = params[:tool]
+    session[:computer_tool] = :rock
     redirect '/play'
   end
 

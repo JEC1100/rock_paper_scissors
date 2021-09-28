@@ -17,4 +17,14 @@ feature 'playing a game' do
     click_button 'Rock'
     expect(page).to have_content 'You chose Rock!'
   end
+
+  scenario 'game choose its "Rock""' do
+    click_button 'Rock'
+    permutation = find(:css, "#computer").text.strip
+    expect(computer_permutations).to include permutation
+  end
+
+  def computer_permutations
+    [:rock, :paper, :scissors].collect { |tool| "Computer chose #{tool.to_s.capitalize}!"}
+  end
 end
