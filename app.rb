@@ -14,7 +14,13 @@ class ROCK_PAPER_SCISSORS < Sinatra::Base
 
   get '/play' do
     @name = session[:name]
+    @tool = session[:tool]
     erb :play
+  end
+
+  post '/play' do
+    session[:tool] = params[:tool]
+    redirect '/play'
   end
 
   # start the server if ruby file executed directly
