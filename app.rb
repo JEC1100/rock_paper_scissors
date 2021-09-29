@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class ROCK_PAPER_SCISSORS < Sinatra::Base
+class RPS < Sinatra::Base
   enable :sessions
   
   get '/' do
@@ -8,19 +8,17 @@ class ROCK_PAPER_SCISSORS < Sinatra::Base
   end
 
   post '/name' do
-    session[:name] = params[:name]
+    session[:player_name] = params[:name]
     redirect '/play'
   end
 
   get '/play' do
-    @name = session[:name]
-    @tool = session[:tool]
-    @computer_tool = session[:computer_tool]
+    @go = Go.new(session)
     erb :play
   end
 
   post '/play' do
-    session[:tool] = params[:tool]
+    session[:player_tool] = params[:tool]
     session[:computer_tool] = :rock
     redirect '/play'
   end

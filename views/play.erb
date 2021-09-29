@@ -1,4 +1,4 @@
-Hello, <%= @name%>!
+Hello, <%= @go.player_name%>!
 
 <form method="POST" action="/play">
   <input type="submit" name="tool" value="Rock" />
@@ -6,8 +6,8 @@ Hello, <%= @name%>!
   <input type="submit" name="tool" value="Scissors" />
   </form>
 
-You chose <%= @tool%>!
+You chose <%= @go.player_tool.to_s.capitalize%>!
 
 <div id="computer">
-  Computer chose <%= @computer_tool.to_s.capitalize%>!
+  Computer chose <%= @go.computer_tool.to_s.capitalize%>!
 </div>
