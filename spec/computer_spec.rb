@@ -5,7 +5,7 @@ describe Computer do
 
   describe "#tool" do
     it 'returns a random tool' do
-      expect([:rock, :paper, :scissors]).to include computer.tool
+      expect(Computer::TOOLS).to include computer.tool
     end
   end
 end

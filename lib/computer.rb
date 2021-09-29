@@ -1,6 +1,6 @@
 class Computer
- CHOICE = [:rock, :paper, :scissors] 
+ TOOLS = [:rock, :paper, :scissors] 
   def tool
-    CHOICE.sample
+    TOOLS.sample
   end
 end

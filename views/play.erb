@@ -11,3 +11,7 @@ You chose <%= @go.player_tool.to_s.capitalize%>!
 <div id="computer">
   Computer chose <%= @go.computer_tool.to_s.capitalize%>!
 </div>
+
+<% if @go.win? %>
+  You win!
+<% end %>

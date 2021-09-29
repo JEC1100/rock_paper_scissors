@@ -31,6 +31,13 @@ feature 'playing a game' do
     expect(page).to have_content 'Computer chose Scissors!'
   end
 
+  # I want to see if I can win
+  scenario 'I win' do
+    srand(SEED)
+    click_button 'Rock'
+    expect(page).to have_content 'You win!'
+  end
+
   def computer_permutations
     [:rock, :paper, :scissors].collect { |tool| "Computer chose #{tool.to_s.capitalize}!"}
   end
