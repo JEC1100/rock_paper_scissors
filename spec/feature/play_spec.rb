@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'playing a game' do
+  SEED  = 221563
   before do
     visit '/'
     fill_in 'name', with: 'Ernest'
@@ -22,6 +23,12 @@ feature 'playing a game' do
     click_button 'Rock'
     permutation = find(:css, "#computer").text.strip
     expect(computer_permutations).to include permutation
+  end
+
+  scenario 'game chooses a random option' do
+    srand(SEED)
+    click_button 'Rock'
+    expect(page).to have_content 'Computer chose Scissors!'
   end
 
   def computer_permutations

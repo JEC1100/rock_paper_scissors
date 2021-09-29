@@ -19,7 +19,7 @@ class RPS < Sinatra::Base
 
   post '/play' do
     session[:player_tool] = params[:tool]
-    session[:computer_tool] = :rock
+    session[:computer_tool] = Computer.new.tool
     redirect '/play'
   end
 
