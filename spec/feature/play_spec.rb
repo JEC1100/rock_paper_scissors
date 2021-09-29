@@ -19,10 +19,10 @@ feature 'playing a game' do
     expect(page).to have_content 'You chose Rock!'
   end
 
-  scenario 'game choose its "Rock""' do
+  scenario 'game choose "Rock"' do
     click_button 'Rock'
-    permutation = find(:css, "#computer").text.strip
-    expect(computer_permutations).to include permutation
+    message = find(:css, "#computer").text.strip
+    expect([:rock, :paper, :scissors].map { |tool| "Computer chose #{tool.to_s.capitalize}!"}).to include message
   end
 
   scenario 'game chooses a random option' do
@@ -30,15 +30,25 @@ feature 'playing a game' do
     click_button 'Rock'
     expect(page).to have_content 'Computer chose Scissors!'
   end
+ 
+  context 'end game' do
+    before do
+      srand(SEED)
+    end
 
-  # I want to see if I can win
-  scenario 'I win' do
-    srand(SEED)
-    click_button 'Rock'
-    expect(page).to have_content 'You win!'
-  end
+    scenario 'I win' do
+      click_button 'Rock'
+      expect(page).to have_content 'You win!'
+    end
 
-  def computer_permutations
-    [:rock, :paper, :scissors].collect { |tool| "Computer chose #{tool.to_s.capitalize}!"}
+    scenario 'I lose' do
+      click_button 'Paper'
+      expect(page).to have_content 'You lose!'
+    end
+
+    scenario 'I draw' do
+      click_button 'Scissors'
+      expect(page).to have_content 'You draw!'
+    end
   end
 end

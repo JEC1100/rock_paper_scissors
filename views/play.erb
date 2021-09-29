@@ -14,4 +14,8 @@ You chose <%= @go.player_tool.to_s.capitalize%>!
 
 <% if @go.win? %>
   You win!
+<% elsif @go.lose? %>
+  You lose!
+<% elsif @go.draw? %>
+  You draw!
 <% end %>
