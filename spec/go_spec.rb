@@ -2,7 +2,7 @@ require 'go'
 
 describe Go do
   subject(:go) { described_class.new(options) }
-  let(:options) { {"player_name" => "Ernest", "player_tool" => :rock, "computer_tool" => :scissors} }
+  let(:options) { {"player_name" => "Ernest", "player_tool" => :rock, "game_tool" => :scissors} }
 
   describe '#player_name' do
     it 'returns player name' do
@@ -16,9 +16,9 @@ describe Go do
     end
   end
 
-  describe '#computer_tool' do
-    it 'returns computer tool' do
-      expect(go.computer_tool).to eq :scissors
+  describe '#game_tool' do
+    it 'returns game tool' do
+      expect(go.game_tool).to eq :scissors
     end
   end
 
@@ -27,23 +27,23 @@ describe Go do
     subject(:lose_go) { described_class.new(lose_options) }
     subject(:draw_go) { described_class.new(draw_options) }
 
-    let(:lose_options) { {"player_name" => "Ernest", "player_tool" => :rock, "computer_tool" => :paper} }
-    let(:draw_options) { {"player_name" => "Ernest", "player_tool" => :rock, "computer_tool" => :rock} }
+    let(:lose_options) { {"player_name" => "Ernest", "player_tool" => :rock, "game_tool" => :paper} }
+    let(:draw_options) { {"player_name" => "Ernest", "player_tool" => :rock, "game_tool" => :rock} }
 
     describe '#win?' do
-      it 'returns true if player_tool is :rock and computer_tool is :scissors' do
+      it 'returns true if player_tool is :rock and game_tool is :scissors' do
         expect(win_go.win?).to eq true
       end
     end
 
     describe '#lose?' do
-      it 'returns true if player_tool is :rock and computer_tool is :paper' do
+      it 'returns true if player_tool is :rock and game_tool is :paper' do
         expect(lose_go.lose?).to eq true
       end
     end
 
     describe '#draw?' do
-      it 'returns true if player_tool is :rock and computer_tool is :rock' do
+      it 'returns true if player_tool is :rock and game_tool is :rock' do
         expect(draw_go.draw?).to eq true
       end
     end
