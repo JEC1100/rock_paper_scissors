@@ -7,12 +7,12 @@ class Go
 
   }
 
-  attr_reader :player_name, :player_tool, :computer_tool
+  attr_reader :player_name, :player_tool, :game_tool
   
   def initialize(options)
     @player_name = options["player_name"]
     @player_tool = options["player_tool"]
-    @computer_tool = options["computer_tool"]
+    @game_tool = options["game_tool"]
   end
 
   def win?
@@ -30,8 +30,8 @@ class Go
   private
 
   def result
-    return if @computer_tool.nil?
-    RULES[@player_tool][@computer_tool]
+    return if @game_tool.nil?
+    RULES[@player_tool][@game_tool]
   end
 
 end
