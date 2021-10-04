@@ -8,14 +8,12 @@ Create a web app that allows you to play the time-honoured game with nothing but
 4. Create tests for the welcome page, entering a name. 
 5. Created app controller and first views erb to with form, and tested post request sent correctly.
 6. Tested selecting link to choose tool. Create Player object with an instance variable to store this info (alongside name).
-7. Refactored to replace magic numbers and tool options with constants and created a helper method for computer permutations.
+7. Refactored to replace magic numbers and tool options with constants and created a helper method for Game (named Computer) object's permutations.
 8. Extrapolated tests and production code to also account for the tools, paper and scissors.
 9. Created player tests.
-10. Created Computer tests to test whether it pulls player move correctly.
-11. Extended Computer tests to allow it to generate a random move containing logic inside in model.
+10. Created Game's tests to test whether it pulls player move correctly.
+11. Extended Game's tests to allow it to generate a random move containing logic inside in model.
 
-I think this meets a basic version of the remit, but there is still room for improvement.
-Some nice visuals to help the user become better immersed in our illusion.
-
-
+This meets the minimum requirements, but there is still room for improvement. Perhaps, changing controller logic to use game (Computer object) as a top level model.
+Some nice visuals to help the user become better immersed in our illusion. 
 
