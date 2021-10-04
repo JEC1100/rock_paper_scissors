@@ -1,6 +1,6 @@
 # Rock Paper Scissors Challenge
 ## Challenge summary
-Create a web app that allows you to play the time-honoured game with nothing but your your mitts :wave: :v: :fist: : rock paper scissors.
+Create a web app that allows you to play this time-honoured game with nothing but your your mitts :fist: :wave: :v:: rock paper scissors.
 ## Steps
 1. Forked RPS challenge from Maker's Repo. Bundled installed its preset gems. 
 2. Replaced README with this one. 
