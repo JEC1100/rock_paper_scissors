@@ -21,14 +21,14 @@ feature 'playing a game' do
 
   scenario 'game choose "Rock"' do
     click_button 'Rock'
-    message = find(:css, "#computer").text.strip
-    expect([:rock, :paper, :scissors].map { |tool| "Computer chose #{tool.to_s.capitalize}!"}).to include message
+    message = find(:css, "#game").text.strip
+    expect([:rock, :paper, :scissors].map { |tool| "game chose #{tool.to_s.capitalize}!"}).to include message
   end
 
   scenario 'game chooses a random option' do
     srand(SEED)
     click_button 'Rock'
-    expect(page).to have_content 'Computer chose Scissors!'
+    expect(page).to have_content 'Game chose Scissors!'
   end
  
   context 'end game' do
