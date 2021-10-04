@@ -1,4 +1,4 @@
-class Computer
+class Game
  TOOLS = [:rock, :paper, :scissors] 
   def tool
     TOOLS.sample
